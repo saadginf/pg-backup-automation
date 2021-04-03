@@ -1,8 +1,11 @@
 #!/bin/bash
 
-db_name=w3stream
-password=Biggboss1
-target=saadevops@192.168.1.11:/Users/saadevops
+db_name=dbname
+# scp is using ssh
+password=targetPassword
+# example target= user@192.168.1.11:/home/backups
+target=targetUser@TargetIP:/TargetPath
+
 sqlfile=/home/backup/backup-$(date +%d-%m-%Y_%H-%M-%S).sql
 if pg_dump -h 127.0.0.1 -U postgres $db_name > $sqlfile ; then
    echo 'Sql dump created'
